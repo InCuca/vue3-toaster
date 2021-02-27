@@ -1,0 +1,20 @@
+{
+  "name": "@incuca/vue-toaster",
+  "version": "1.0.0",
+  "description": "Lightweight toast-notification plugin for Vue 3",
+  "license": "MIT",
+  "homepage": "https://github.com/InCuca/vue3-toaster/issues#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:InCuca/vue3-toaster.git"
+  },
+  "bugs": {
+    "url": "https://github.com/InCuca/vue3-toaster/issues"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["vue", "vue3", "toast", "toaster", "notification", "snackbar"],
+  "dependencies": {}
+}

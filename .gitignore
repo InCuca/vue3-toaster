@@ -1,0 +1,6 @@
+.idea
+.vscode
+[Tt]humbs.db
+*.DS_Store
+.svn
+~$*

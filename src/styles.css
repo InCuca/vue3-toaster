@@ -1,0 +1,196 @@
+.fadeOut {
+  animation-name: fadeOut;
+}
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+.fade-enter-active {
+  transition: opacity 300ms ease-in;
+}
+.fade-leave-active {
+  transition: opacity 150ms ease-out;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.toast-container {
+  position: fixed;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2em;
+  overflow: hidden;
+  z-index: 9999;
+  pointer-events: none;
+}
+.toast-container-top {
+  flex-direction: column;
+}
+.toast-container-bottom {
+  flex-direction: column-reverse;
+}
+@media screen and (max-width: 768px) {
+  .toast-container {
+    padding: 0;
+    position: fixed !important;
+  }
+}
+.toast-top,
+.toast-bottom {
+  align-self: center;
+}
+.toast-top-right,
+.toast-bottom-right {
+  align-self: flex-end;
+}
+.toast-top-left,
+.toast-bottom-left {
+  align-self: flex-start;
+}
+.default-theme .toast-success {
+  background-color: #34d399;
+}
+.default-theme .toast-info {
+  background-color: #60a5fa;
+}
+.default-theme .toast-warning {
+  background-color: #fbbf24;
+}
+.default-theme .toast-error {
+  background-color: #f87171;
+}
+.default-theme .toast-default {
+  background-color: #9ca3af;
+}
+.default-theme .toast {
+  display: grid;
+  align-items: center;
+  animation-duration: 150ms;
+  margin: 0.5em 0;
+  border-radius: 0.5em;
+  pointer-events: auto;
+  color: #fff;
+  min-height: 3em;
+  cursor: pointer;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  padding: 0.5em 2em;
+  word-break: break-word;
+}
+@-moz-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-o-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-moz-keyframes fadeInDown {
+  from {
+    opacity: 0.5;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0.5;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-o-keyframes fadeInDown {
+  from {
+    opacity: 0.5;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0.5;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-moz-keyframes fadeInUp {
+  from {
+    opacity: 0.5;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0.5;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-o-keyframes fadeInUp {
+  from {
+    opacity: 0.5;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0.5;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

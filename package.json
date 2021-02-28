@@ -15,6 +15,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["vue", "vue3", "toast", "toaster", "notification", "snackbar"],
-  "dependencies": {}
+  "keywords": [
+    "vue",
+    "vue3",
+    "toast",
+    "toaster",
+    "notification",
+    "snackbar"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.2.4",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^7.6.0",
+    "postcss": "^8.2.6",
+    "prettier": "^1.19.1",
+    "vue": "^3.0.6"
+  }
 }

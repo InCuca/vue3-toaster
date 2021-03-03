@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-    <HelloWorld msg="Welcome to Vue Toaster Example" />
+    <hello-world msg="Welcome to Vue Toaster Example" />
   </div>
 </template>
 

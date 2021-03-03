@@ -1,31 +1,35 @@
 <template>
   <div class="hello">
-    <Spacing bottom="4">
+    <spacing bottom="4">
       <h1>{{ msg }}</h1>
       <p>Click a button to show a Toast</p>
-    </Spacing>
-    <div class="c-grid">
-      <Button class="v--default" @click="toast">Default</Button>
-      <Button class="v--success" @click="toast('success')">Success</Button>
-      <Button class="v--info" @click="toast('info')">Info</Button>
-      <Button class="v--warning" @click="toast('warning')">Warning</Button>
-      <Button class="v--error" @click="toast('error')">Error</Button>
+    </spacing>
+    <div class="grid">
+      <toast-button class="default" @click="toast">Default</toast-button>
+      <toast-button class="success" @click="toast('success')">
+        Success
+      </toast-button>
+      <toast-button class="info" @click="toast('info')">Info</toast-button>
+      <toast-button class="warning" @click="toast('warning')">
+        Warning
+      </toast-button>
+      <toast-button class="error" @click="toast('error')">Error</toast-button>
     </div>
-    <Spacing :vertical="4">
+    <spacing :vertical="4">
       <h2>Do your changes</h2>
-      <Spacing :vertical="2">
-        <div class="c-two-columns">
+      <spacing :vertical="2">
+        <div class="two-columns">
           <div>
             <fieldset>
-              <label class="c-label" for="message">Message</label>
+              <label class="label" for="message">Message</label>
               <input id="message" v-model="message" type="text" />
             </fieldset>
             <fieldset>
-              <label class="c-label">Position</label>
+              <label class="label">Position</label>
               <label
                 v-for="position in POSITIONS"
                 :key="position.key"
-                class="c-label"
+                class="label"
               >
                 <input
                   name="position"
@@ -37,7 +41,7 @@
               </label>
             </fieldset>
             <fieldset>
-              <label class="c-label">
+              <label class="label">
                 Duration: {{ options.duration
                 }}{{ options.duration ? "ms" : "" }}
               </label>
@@ -48,13 +52,13 @@
                 v-model="options.duration"
                 :disabled="options.duration === false"
               />
-              <label class="c-label">
+              <label class="label">
                 <input type="checkbox" @change="changeDuration" />
                 Disable duration
               </label>
             </fieldset>
             <fieldset>
-              <label class="c-label">
+              <label class="label">
                 <input
                   type="checkbox"
                   checked
@@ -64,7 +68,7 @@
               </label>
             </fieldset>
             <fieldset>
-              <label class="c-label">
+              <label class="label">
                 <input
                   type="checkbox"
                   @change="options.queue = $event.target.checked"
@@ -73,7 +77,7 @@
               </label>
             </fieldset>
             <fieldset>
-              <label class="c-label"> Max Toasts</label>
+              <label class="label"> Max Toasts</label>
               <input
                 type="number"
                 v-model="options.maxToasts"
@@ -81,7 +85,7 @@
               />
             </fieldset>
             <fieldset>
-              <label class="c-label">
+              <label class="label">
                 <input
                   type="checkbox"
                   checked
@@ -91,7 +95,7 @@
               </label>
             </fieldset>
             <fieldset>
-              <label class="c-label">
+              <label class="label">
                 <input
                   type="checkbox"
                   checked
@@ -101,90 +105,84 @@
               </label>
             </fieldset>
           </div>
-          <div class="c-column-right">
-            <div class="c-code">
+          <div class="column-right">
+            <div class="code">
               <code>this.$toast(</code>
-              <Spacing left="2">
-                <code class="c-code--string">"{{ message }}"</code>
+              <spacing left="2">
+                <code class="code-string">"{{ message }}"</code>
                 <code v-if="hasOptions">,</code>
-              </Spacing>
-              <Spacing v-if="hasOptions" left="2">
+              </spacing>
+              <spacing v-if="hasOptions" left="2">
                 <code>{</code>
-                <Spacing left="4">
-                  <span class="c-code--object-line" v-if="options.type">
+                <spacing left="4">
+                  <span class="code-object-line" v-if="options.type">
                     <code>type:</code>
-                    <code class="c-code--string">{{ options.type }}</code>
+                    <code class="code-string">{{ options.type }}</code>
                   </span>
-                  <span class="c-code--object-line" v-if="options.position">
+                  <span class="code-object-line" v-if="options.position">
                     <code>position:</code>
-                    <code class="c-code--string">"{{ options.position }}"</code>
+                    <code class="code-string">"{{ options.position }}"</code>
                   </span>
                   <span
-                    class="c-code--object-line"
+                    class="code-object-line"
                     v-if="options.duration !== 4000"
                   >
                     <code>duration:</code>
-                    <code class="c-code--number">{{ options.duration }}</code>
+                    <code class="code-number">{{ options.duration }}</code>
                   </span>
 
                   <span
-                    class="c-code--object-line"
+                    class="code-object-line"
                     v-if="options.dismissible === false"
                   >
                     <code>dismissible:</code>
-                    <code class="c-code--number">{{
-                      options.dismissible
-                    }}</code>
+                    <code class="code-number">{{ options.dismissible }}</code>
                   </span>
 
-                  <span class="c-code--object-line" v-if="options.queue">
+                  <span class="code-object-line" v-if="options.queue">
                     <code>queue:</code>
-                    <code class="c-code--number">{{ options.queue }}</code>
+                    <code class="code-number">{{ options.queue }}</code>
                   </span>
 
                   <span
-                    class="c-code--object-line"
+                    class="code-object-line"
                     v-if="options.maxToasts || options.maxToasts === 0"
                   >
                     <code>max:</code>
-                    <code class="c-code--number">{{ options.maxToasts }}</code>
+                    <code class="code-number">{{ options.maxToasts }}</code>
                   </span>
 
                   <span
-                    class="c-code--object-line"
+                    class="code-object-line"
                     v-if="options.pauseOnHover === false"
                   >
                     <code>pauseOnHover:</code>
-                    <code class="c-code--number">{{
-                      options.pauseOnHover
-                    }}</code>
+                    <code class="code-number">{{ options.pauseOnHover }}</code>
                   </span>
 
                   <span
-                    class="c-code--object-line"
+                    class="code-object-line"
                     v-if="options.useDefaultCss === false"
                   >
                     <code>useDefaultCss:</code>
-                    <code class="c-code--number">{{
-                      options.useDefaultCss
-                    }}</code>
+                    <code class="code-number">{{ options.useDefaultCss }}</code>
                   </span>
-                </Spacing>
+                </spacing>
                 <code>}</code>
-              </Spacing>
+              </spacing>
               <code>)</code>
             </div>
-            <Button @click="toast" class="v--default">Show it</Button>
+            <toast-button @click="toast" class="default">Show it</toast-button>
           </div>
         </div>
-      </Spacing>
-    </Spacing>
+      </spacing>
+    </spacing>
   </div>
 </template>
 
 <script>
-import Button from "./Button";
 import Spacing from "./Spacing.vue";
+import ToastButton from "./ToastButton";
 import { POSITIONS } from "@incuca/vue3-toaster";
 
 export default {
@@ -198,7 +196,7 @@ export default {
     };
   },
   components: {
-    Button,
+    ToastButton,
     Spacing
   },
   props: {
@@ -263,7 +261,7 @@ li {
 a {
   color: #42b983;
 }
-.c-grid {
+.grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 8px;
@@ -293,7 +291,7 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.c-two-columns {
+.two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px;
@@ -311,7 +309,7 @@ fieldset:not(:last-child) {
   margin-bottom: 20px;
 }
 
-.c-label {
+.label {
   font-weight: 700;
   margin-bottom: 8px;
   display: flex;
@@ -319,7 +317,7 @@ fieldset:not(:last-child) {
   text-transform: capitalize;
 }
 
-.c-code {
+.code {
   background-color: #252526;
   border-radius: 8px;
   color: #fff;
@@ -328,27 +326,27 @@ fieldset:not(:last-child) {
   text-align: left;
 }
 
-.c-code--string {
+.code-string {
   color: #ce9178;
 }
 
-.c-code--object-line {
+.code-object-line {
   display: flex;
 }
-.c-code--object-line:not(:last-child)::after {
+.code-object-line:not(:last-child)::after {
   content: ",";
   font-family: monospace;
   display: inline-block;
 }
-.c-code--object-line > code:last-child {
+.code-object-line > code:last-child {
   margin-left: 8px;
 }
 
-.c-code--number {
+.code-number {
   color: #b5cea8;
 }
 
-.c-column-right {
+.column-right {
   display: grid;
   grid-gap: 16px;
 }

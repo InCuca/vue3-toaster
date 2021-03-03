@@ -1,5 +1,5 @@
 import "./styles.css";
-import eventBus from "./composables/event-bus";
+import Event from "./composables/event-bus";
 import useComponent from "./composables/component";
 import Toaster, { POSITIONS, definePosition } from "./Toaster";
 
@@ -17,7 +17,7 @@ Toaster.install = (app, options = {}) => {
     },
 
     clear() {
-      eventBus.emit("clear-toaster");
+      Event.$emit("clear-toaster");
     },
 
     success(message, options = {}) {

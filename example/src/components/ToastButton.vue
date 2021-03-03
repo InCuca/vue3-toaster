@@ -1,18 +1,20 @@
 <template>
-  <button class="c-button">
-    <div class="c-button__hover" />
-    <div class="c-button__content">
+  <button class="button">
+    <div class="button_hover" />
+    <div class="button_content">
       <slot />
     </div>
   </button>
 </template>
+
 <script>
 export default {
-  name: "Button"
+  name: "ToastButton"
 };
 </script>
+
 <style>
-.c-button {
+.button {
   padding: 12px 16px;
   display: inline-block;
   cursor: pointer;
@@ -31,36 +33,36 @@ export default {
   overflow: hidden;
 }
 
-.c-button.v--success {
+.button.success {
   background-color: #28a745;
   color: #fff;
 }
 
-.c-button.v--info {
+.button.info {
   background-color: #17a2b8;
   color: #fff;
 }
 
-.c-button.v--warning {
+.button.warning {
   background-color: #ffc107;
   color: #fff;
 }
 
-.c-button.v--error {
+.button.error {
   background-color: #dc3545;
   color: #fff;
 }
 
-.c-button.v--default {
+.button.default {
   background-color: #343a40;
   color: #fff;
 }
 
-.c-button--sprawled {
+.button-sprawled {
   min-width: 160px;
   padding: 12px 48px;
 }
-.c-button__hover {
+.button_hover {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -70,10 +72,10 @@ export default {
   opacity: 0;
   transition: 0.1s all ease;
 }
-.c-button:hover > .c-button__hover {
+.button:hover > .button_hover {
   opacity: 1;
 }
-.c-button__content {
+.button_content {
   position: relative;
   width: 100%;
   height: 100%;

@@ -24,9 +24,9 @@ import {
   reactive,
   ref
 } from "vue";
-import useTimer from "./composables/timer";
+import Timer from "./composables/timer";
+import Event from "./composables/event-bus";
 import useComponent from "./composables/component";
-import eventBus from "./composables/event-bus";
 
 export const POSITIONS = Object.freeze({
   TOP_RIGHT: "top-right",
@@ -180,7 +180,7 @@ export default {
       isActive.value = true;
 
       data.timer =
-        props.duration !== false ? useTimer(close, props.duration) : null;
+        props.duration !== false ? new Timer(close, props.duration) : null;
     }
 
     function click() {
@@ -219,12 +219,12 @@ export default {
     });
 
     onBeforeUnmount(() => {
-      eventBus.off("clear-toaster", close);
+      Event.$off("clear-toaster", close);
     });
 
     onMounted(() => {
       showNotice();
-      eventBus.on("clear-toaster", close);
+      Event.$on("clear-toaster", close);
     });
 
     const transition = computed(() =>

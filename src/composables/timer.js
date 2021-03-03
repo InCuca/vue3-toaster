@@ -1,30 +1,24 @@
-const state = {
-  startedAt: null,
-  callback: null,
-  delay: null,
-  timer: null
-};
+export default class Timer {
+  constructor(callback, delay) {
+    this.startedAt = Date.now();
+    this.callback = callback;
+    this.delay = delay;
 
-function pause() {
-  stop();
-  state.delay -= Date.now() - state.startedAt;
-}
+    this.timer = setTimeout(callback, delay);
+  }
 
-function resume() {
-  stop();
-  state.startedAt = Date.now();
-  state.timer = setTimeout(state.callback, state.delay);
-}
+  pause() {
+    this.stop();
+    this.delay -= Date.now() - this.startedAt;
+  }
 
-function stop() {
-  clearTimeout(state.timer);
-}
+  resume() {
+    this.stop();
+    this.startedAt = Date.now();
+    this.timer = setTimeout(this.callback, this.delay);
+  }
 
-export default function useTimer(callback, delay) {
-  state.startedAt = Date.now();
-  state.callback = callback;
-  state.delay = delay;
-  state.timer = setTimeout(callback, delay);
-
-  return { pause, resume, stop };
+  stop() {
+    clearTimeout(this.timer);
+  }
 }

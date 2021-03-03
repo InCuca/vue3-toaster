@@ -1,29 +1,31 @@
-const queue = {};
+class Event {
+  constructor() {
+    this.queue = {};
+  }
 
-function on(name, callback) {
-  queue[name] = queue[name] || [];
-  queue[name].push(callback);
-}
+  $on(name, callback) {
+    this.queue[name] = this.queue[name] || [];
+    this.queue[name].push(callback);
+  }
 
-function off(name, callback) {
-  if (queue[name]) {
-    for (var i = 0; i < queue[name].length; i++) {
-      if (queue[name][i] === callback) {
-        queue[name].splice(i, 1);
-        break;
+  $off(name, callback) {
+    if (this.queue[name]) {
+      for (var i = 0; i < this.queue[name].length; i++) {
+        if (this.queue[name][i] === callback) {
+          this.queue[name].splice(i, 1);
+          break;
+        }
       }
+    }
+  }
+
+  $emit(name, data) {
+    if (this.queue[name]) {
+      this.queue[name].forEach(function(callback) {
+        callback(data);
+      });
     }
   }
 }
 
-function emit(name, data) {
-  if (queue[name]) {
-    queue[name].forEach(callback => callback(data));
-  }
-}
-
-export function useEventBus() {
-  return { emit, on, off };
-}
-
-export default useEventBus();
+export default new Event();

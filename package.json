@@ -1,6 +1,6 @@
 {
   "name": "@incuca/vue3-toaster",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lightweight toast-notification plugin for Vue 3",
   "license": "MIT",
   "homepage": "https://github.com/InCuca/vue3-toaster/issues#readme",

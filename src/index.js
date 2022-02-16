@@ -1,7 +1,7 @@
 import "./styles.css";
 import Event from "./composables/event-bus";
 import useComponent from "./composables/component";
-import Toaster, { POSITIONS, definePosition } from "./Toaster";
+import Toaster, { POSITIONS, definePosition } from "./Toaster.vue";
 
 Toaster.install = (app, options = {}) => {
   const globalOptions = options;
